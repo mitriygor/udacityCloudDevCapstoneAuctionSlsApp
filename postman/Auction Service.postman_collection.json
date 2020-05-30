@@ -1,0 +1,205 @@
+{
+	"info": {
+		"_postman_id": "e708ee9a-d935-4e50-ae8d-947dc893668a",
+		"name": "Auction Service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Auction",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{AUTH_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"title\": \"Img3\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{AUCTIONS_HOST}}/auction",
+					"host": [
+						"{{AUCTIONS_HOST}}"
+					],
+					"path": [
+						"auction"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Auctions",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{AUTH_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{AUCTIONS_HOST}}/auctions?status=OPENsdfsfdf",
+					"host": [
+						"{{AUCTIONS_HOST}}"
+					],
+					"path": [
+						"auctions"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "OPENsdfsfdf"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Auction by ID",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{AUTH_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{AUCTIONS_HOST}}/auction/{{ID}}",
+					"host": [
+						"{{AUCTIONS_HOST}}"
+					],
+					"path": [
+						"auction",
+						"{{ID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Set Bid",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{AUTH_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"amount\": 5\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{AUCTIONS_HOST}}/auction/{{ID}}/bid",
+					"host": [
+						"{{AUCTIONS_HOST}}"
+					],
+					"path": [
+						"auction",
+						"{{ID}}",
+						"bid"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Auth Test",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{AUTH_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{AUTH_HOST}}/private",
+					"host": [
+						"{{AUTH_HOST}}"
+					],
+					"path": [
+						"private"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Picture",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{AUTH_TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "data:image/png;base64,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"
+				},
+				"url": {
+					"raw": "{{AUCTIONS_HOST}}/auction/{{ID}}/picture",
+					"host": [
+						"{{AUCTIONS_HOST}}"
+					],
+					"path": [
+						"auction",
+						"{{ID}}",
+						"picture"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
