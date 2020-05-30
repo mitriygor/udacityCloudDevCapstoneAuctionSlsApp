@@ -12,7 +12,6 @@ Resources
 Firstly, install dependencies:
 ```
 npm i
-sls deploy -v
 ```
 After that, deploy application
 ```
