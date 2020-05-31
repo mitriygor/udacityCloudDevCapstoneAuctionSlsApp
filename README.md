@@ -2,7 +2,7 @@
 
 The application provides basic functionality for creating and processing the auction items. The applications has functionality for authentication and image upload.
 
-Resources
+## Resources
 * API Gateway 
 * S3
 * DynamoDB

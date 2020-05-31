@@ -23,6 +23,7 @@
     "@middy/validator": "^1.0.0",
     "aws-sdk": "^2.639.0",
     "http-errors": "^1.7.3",
+    "serverless-iam-roles-per-function": "^2.0.2",
     "uuid": "^8.1.0"
   }
 }

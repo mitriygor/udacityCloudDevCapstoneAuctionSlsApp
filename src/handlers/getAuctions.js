@@ -1,11 +1,8 @@
-import AWS from 'aws-sdk';
 import commonMiddleware from '../lib/commonMiddleware';
 import createError from 'http-errors';
 import validator from '@middy/validator';
 import getAuctionsSchema from '../lib/schemas/getAuctionsSchema';
-
-const dynamodb = new AWS.DynamoDB.DocumentClient();
-
+import {getAuctionItems} from '../models/auction';
 
 async function getAuctions(event, context) {
   const { status } = event.queryStringParameters;
@@ -23,9 +20,8 @@ async function getAuctions(event, context) {
     }
   };
 
-
   try {
-    const result = await dynamodb.query(params).promise();
+    const result = await getAuctionItems(params);
     auctions = result.Items;
   } catch (error) {
     console.error(error);

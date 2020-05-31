@@ -1,11 +1,9 @@
-import AWS from 'aws-sdk';
 import commonMiddleware from '../lib/commonMiddleware';
 import createError from 'http-errors';
 import {getActionById} from './getAuction';
 import validator from '@middy/validator';
 import placeBidsSchema from '../lib/schemas/placeBidsSchema.js';
-
-const dynamodb = new AWS.DynamoDB.DocumentClient();
+import {updateAuctionItem} from '../models/auction';
 
 async function placeBid(event, context) {
   const {id} = event.pathParameters;
@@ -42,7 +40,7 @@ async function placeBid(event, context) {
   };
 
   try {
-    const result = await dynamodb.update(params).promise();
+    const result = await updateAuctionItem(params);
     updatedAuction = result.Attributes;
   } catch (error) {
     console.error(error);
